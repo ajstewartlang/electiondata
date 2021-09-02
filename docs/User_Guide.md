@@ -430,22 +430,6 @@ This function takes optional arguments:
 
 Results of the test will be reported in a the directory specified by the `reports_and_plots_dir` parameter in the parameter file.
 
-## Loading a file with multiple elections or jurisdictions
-Sometimes it is useful to load a single file with results from several elections or jurisdictions. For example, a secondary source may have combined results information into one file. The method `DataLoader.load_multielection_from_ini()` method allows this kind of upload. This method requires an initialization file, with all the usual required parameters except `election` and `jurisdiction`, and with the additional parameter `secondary_source`. The value of `secondary-source` should be the name of a subfolder of `src/secondary_sources` in the repository, containing files listing the elections and jurisdictions. E.g., 
-```
-[election_results]
-results_file=MEDSL/county_2018.csv
-munger_list=medsl_2018
-secondary_source=MIT-Election-Data-Science-Lab
-results_short_name=medsl_2018_county
-results_download_date=2021-07-10
-results_source=https://github.com/MEDSL/2018-elections-official/blob/master/county_2018.csv
-results_note=county-level
-```
-The method `DataLoader.load_multielection_from_ini()` takes two optional parameters: 
- * `overwrite_existing` (default `False`): if True, will delete from database any existing results for each election-jurisdiction pair represented in the results file
- * `load_jurisdictions` (default `False`): if True, will load or update database with the jurisdiction information (from `src/jurisdictions`) for each jurisdiction represented in the results file
-
 
 ## Miscellaneous helpful hints
 ### Required Conventions
